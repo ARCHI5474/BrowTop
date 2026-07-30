@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrowTop:V17 Codename:tidy</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&family=DotGothic16&family=M+PLUS+1+Code&family=Oswald:wght@300&family=Roboto+Mono:wght@200&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <div class="header-top">
+        <div class="settings-trigger-top" onclick="toggleModal()"><span class="material-icons">settings</span></div>
+        <div id="clock">00:00</div>
+        <div id="greeting">...</div>
+        <div class="notice-board" id="notice-area">
+            <span class="notice-tag">INFO</span>
+            <span id="notice-text">問題が発生しました。</span>
+        </div>
+    </div>
+</header>
+
+<div class="search-container">
+    <form action="https://www.google.com/search" method="get" class="search-form">
+        <input type="text" name="q" class="search-bar" placeholder="Googleで検索" autocomplete="off">
+        <button type="submit" class="search-button"><span class="material-icons">search</span></button>
+    </form>
+</div>
+
+<div class="container">
+    <main><div class="card"><h3>ニュース</h3><ul id="news-list">問題が発生しました。</ul></div></main>
+    <aside>
+        <div class="card"><h3>ブックマーク</h3><div class="bookmark-grid" id="bookmark-grid"></div><button onclick="addBookmark()" style="margin-top:10px; width:100%; padding:8px; border:1px dashed var(--p); background:none; color:var(--p); border-radius:8px; cursor:pointer;">+ 追加</button></div>
+        <div class="card"><h3>Quickメモ</h3><textarea id="memo-area" placeholder="メモは自動保存されます。"></textarea></div>
+    </aside>
+</div>
+
+<div class="modal-overlay" id="modal-overlay" onclick="toggleModal()">
+    <div class="modal" onclick="event.stopPropagation()">
+        <h3>表示設定</h3>
+        <p style="font-size:0.8rem; color:#666;">テーマカラー / 書体 / 文字色</p>
+        <div class="picker" id="theme-colors"></div>
+        <div class="picker" id="font-styles"></div>
+        <div class="picker" id="font-colors"></div>
+        <button onclick="toggleModal()" style="margin-top:20px; width:100%; padding:12px; border-radius:12px; border:none; background:var(--p); color:white; cursor:pointer;">閉じる</button>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
