@@ -73,7 +73,7 @@ async function fetchNews() {
         const res = await fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent("https://news.google.com/rss?hl=ja&gl=JP&ceid=JP:ja")}`);
         const data = await res.json();
         list.innerHTML = data.items.slice(0, 10).map(item => `<li><a href="${item.link}" target="_blank">${item.title.split(' - ')[0]}</a></li>`).join('');
-    } catch (e) { list.innerHTML = "<li>問題が発生しました。</li>"; }
+    } catch (e) { list.innerHTML = "<li>現在、ブラウトップとライフトップにおいて、一部端末でニュースが取得できない不具合が発生しています。<br>復旧までしばらくお待ちください。</li>"; }
 }
 
 document.getElementById('memo-area').addEventListener('input', () => { userConfig.memo = document.getElementById('memo-area').value; save(); });
